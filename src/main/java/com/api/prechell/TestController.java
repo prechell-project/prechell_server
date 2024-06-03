@@ -8,6 +8,5 @@ public class TestController {
     @GetMapping
     public String test01(){
         return "Hello world";
-        // 테스트 주석
     }
 }
