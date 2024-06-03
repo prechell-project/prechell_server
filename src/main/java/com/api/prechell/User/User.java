@@ -1,4 +1,4 @@
-package User;
+package com.api.prechell.User;
 
 import jakarta.persistence.*;
 
