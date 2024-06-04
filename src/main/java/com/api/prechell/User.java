@@ -14,19 +14,19 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer userId;
 
-    @Column(nullable = false)
+    @Column(nullable = false,length = 255)
     private String email;
 
-    @Column(nullable = false)
+    @Column(nullable = false,length = 500)
     private String password;
 
-    @Column(nullable = false)
-    private String name; // 닉네임
+    @Column(nullable = false,length = 100)
+    private String name;
 
-    @Column(nullable = false)
+    @Column(nullable = false,length = 10)
     private String gender;
 
-    @Column(nullable = false)
+    @Column(nullable = false,length = 20)
     private String phoneNumber;
 
 }

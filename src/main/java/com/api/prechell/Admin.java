@@ -13,7 +13,10 @@ public class Admin {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer adminId;
 
+    @Column(length = 255)
     private String email;
+
+    @Column(length = 100)
     private String username;
 
 }

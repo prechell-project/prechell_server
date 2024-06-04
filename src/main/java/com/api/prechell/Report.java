@@ -23,7 +23,7 @@ public class Report {
     @JoinColumn(name = "reported_user_id", nullable = false)
     private User reportedUser;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 500)
     private String reportContent;
 
     @Column(nullable = false)
