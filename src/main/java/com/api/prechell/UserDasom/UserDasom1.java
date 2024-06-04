@@ -1,9 +1,9 @@
-package com.api.prechell.User;
+package com.api.prechell.UserDasom;
 
 import jakarta.persistence.*;
 
 @Entity
-public class User {
+public class UserDasom1 {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
