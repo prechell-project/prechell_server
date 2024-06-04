@@ -13,7 +13,9 @@ public class Video {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer videoId;
 
+    @Column(length = 255)
     private String videoUrl;
+
     private Boolean muted = false;
 
 }

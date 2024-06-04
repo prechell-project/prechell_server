@@ -13,7 +13,9 @@ public class Trend {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer trendId;
 
+    @Column(length = 255)
     private String keyword;
+
     private Integer ranking;
 
 }

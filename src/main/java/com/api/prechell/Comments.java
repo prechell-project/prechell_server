@@ -23,7 +23,7 @@ public class Comments {
     @JoinColumn(name = "content_id", nullable = false)
     private Content content;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 500)
     private String commentText;
 
     @Column(nullable = false)

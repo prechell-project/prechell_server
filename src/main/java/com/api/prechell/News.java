@@ -13,7 +13,9 @@ public class News {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer newsId;
 
+    @Column(length = 100)
     private String type;
-    private String content;
 
+    @Column(length = 500)
+    private String content;
 }

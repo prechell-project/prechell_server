@@ -19,9 +19,15 @@ public class Support {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
+    @Column(length = 100)
     private String inquiryType;
+
+    @Column(length = 500)
     private String inquiryContent;
+
+    @Column(length = 500)
     private String responseContent;
+
     private LocalDateTime responseDate;
 
 }
