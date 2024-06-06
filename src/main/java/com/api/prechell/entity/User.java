@@ -1,4 +1,4 @@
-package com.api.prechell;
+package com.api.prechell.entity;
 
 
 import jakarta.persistence.*;
@@ -21,12 +21,14 @@ public class User {
     private String password;
 
     @Column(nullable = false,length = 100)
-    private String name;
+    private String userName;
 
     @Column(nullable = false,length = 10)
     private String gender;
 
     @Column(nullable = false,length = 20)
     private String phoneNumber;
+
+    private String role;
 
 }

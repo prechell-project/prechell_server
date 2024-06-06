@@ -1,4 +1,4 @@
-package com.api.prechell;
+package com.api.prechell.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -7,15 +7,15 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "video")
-public class Video {
+@Table(name = "trend")
+public class Trend {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer videoId;
+    private Integer trendId;
 
     @Column(length = 255)
-    private String videoUrl;
+    private String keyword;
 
-    private Boolean muted = false;
+    private Integer ranking;
 
 }

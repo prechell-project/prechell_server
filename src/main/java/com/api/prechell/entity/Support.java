@@ -1,4 +1,4 @@
-package com.api.prechell;
+package com.api.prechell.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
