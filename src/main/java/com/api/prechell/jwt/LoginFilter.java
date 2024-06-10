@@ -16,7 +16,6 @@ import java.util.Iterator;
 
 public class LoginFilter extends UsernamePasswordAuthenticationFilter {
 
-
     private final AuthenticationManager authenticationManager;
     private final JWTUtil jwtUtil;
 
@@ -37,7 +36,6 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
         UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(username, password, null);
 
         return authenticationManager.authenticate(authToken);
-
     }
 
     @Override
@@ -56,12 +54,10 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
         String token = jwtUtil.createJwt(username, role, 60*60*10L);
 
         response.addHeader("Authorization", "Bearer " + token);
-
     }
 
     @Override
     protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) {
-
 
         response.setStatus(401);
     }
