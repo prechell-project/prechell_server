@@ -31,21 +31,6 @@ public class SecurityConfig {
         return configuration.getAuthenticationManager();
     }
 
-    private final AuthenticationConfiguration authenticationConfiguration;
-    private final JWTUtil jwtUtil;
-
-    public SecurityConfig(AuthenticationConfiguration authenticationConfiguration, JWTUtil jwtUtil) {
-
-        this.authenticationConfiguration = authenticationConfiguration;
-        this.jwtUtil = jwtUtil;
-    }
-
-    @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
-
-        return configuration.getAuthenticationManager();
-    }
-
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
 
