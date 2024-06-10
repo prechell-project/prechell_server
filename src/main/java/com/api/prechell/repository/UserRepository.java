@@ -1,11 +1,11 @@
 package com.api.prechell.repository;
 
-import com.api.prechell.entity.UserEntity;
+import com.api.prechell.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<UserEntity, Integer> {
+public interface UserRepository extends JpaRepository<User, Integer> {
 
-    Boolean existsByUsername(String username);
+    Boolean existsByUserName(String username);
 
-    UserEntity findByUsername(String username);
+    User findByUserName(String username);
 }

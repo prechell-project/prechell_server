@@ -9,16 +9,16 @@ import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
 
+import static java.nio.charset.StandardCharsets.*;
+
 @Component
 public class JWTUtil {
 
     private SecretKey secretKey;
-
     public JWTUtil(@Value("${spring.jwt.secret}")String secret) {
 
         this.secretKey = new SecretKeySpec(secret.getBytes(StandardCharsets.UTF_8), Jwts.SIG.HS256.key().build().getAlgorithm());
     }
-
     public String getUsername(String token) {
 
         return Jwts.parser().verifyWith(secretKey).build().parseSignedClaims(token).getPayload().get("username", String.class);
@@ -33,7 +33,6 @@ public class JWTUtil {
 
         return Jwts.parser().verifyWith(secretKey).build().parseSignedClaims(token).getPayload().getExpiration().before(new Date());
     }
-
 
     public String createJwt(String username, String role, Long expiredMs) {
 

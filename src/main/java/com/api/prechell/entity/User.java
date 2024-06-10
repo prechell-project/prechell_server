@@ -29,6 +29,7 @@ public class User {
     @Column(nullable = false,length = 20)
     private String phoneNumber;
 
+    @Column(nullable = false,length = 20)
     private String role;
 
 }

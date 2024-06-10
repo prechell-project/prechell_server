@@ -1,7 +1,7 @@
 package com.api.prechell.jwt;
 
 import com.api.prechell.dto.CustomUserDetails;
-import com.api.prechell.entity.UserEntity;
+import com.api.prechell.entity.User;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -17,11 +17,10 @@ public class JWTFilter extends OncePerRequestFilter {
 
     private final JWTUtil jwtUtil;
 
-    public JWTFilter(JWTUtil jwtUtil) {
+    public JWTFilter(JWTUtil jwtUtil){
 
         this.jwtUtil = jwtUtil;
     }
-
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
@@ -39,6 +38,8 @@ public class JWTFilter extends OncePerRequestFilter {
             return;
         }
 
+        System.out.println("authorization now");
+
         String token = authorization.split(" ")[1];
 
         //토큰 소멸 시간 검증
@@ -47,16 +48,15 @@ public class JWTFilter extends OncePerRequestFilter {
             System.out.println("token expired");
             filterChain.doFilter(request, response);
 
-            //조건이 해당되면 메소드 종료 (필수)
             return;
         }
-
 
         String username = jwtUtil.getUsername(token);
         String role = jwtUtil.getRole(token);
 
-        UserEntity userEntity = new UserEntity();
-        userEntity.setUsername(username);
+
+        User userEntity = new User();
+        userEntity.setUserName(username);
         userEntity.setPassword("temppassword");
         userEntity.setRole(role);
 
@@ -69,4 +69,3 @@ public class JWTFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 }
-
