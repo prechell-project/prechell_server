@@ -1,7 +1,7 @@
 package com.api.prechell.service;
 
 import com.api.prechell.dto.JoinDTO;
-import com.api.prechell.entity.User;
+import com.api.prechell.entity.UserEntity;
 import com.api.prechell.repository.UserRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -23,20 +23,19 @@ public class JoinService {
         String username = joinDTO.getUsername();
         String password = joinDTO.getPassword();
 
-        Boolean isExist = userRepository.existsByUserName(username);
+        Boolean isExist = userRepository.existsByUsername(username);
 
         if (isExist) {
 
             return;
         }
 
-        User data = new User();
+        UserEntity data = new UserEntity();
 
-        data.setUserName(data.getUserName());
+        data.setUsername(username);
         data.setPassword(bCryptPasswordEncoder.encode(password));
-        data.setRole("ROLE_regular member");
+        data.setRole("ROLE_ADMIN");
 
         userRepository.save(data);
-
     }
 }
