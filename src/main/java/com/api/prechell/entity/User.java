@@ -8,13 +8,13 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "user")
+@Table(name = "member")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer userId;
 
-    @Column(nullable = false,length = 255)
+    @Column(nullable = true,length = 255)
     private String email;
 
     @Column(nullable = false,length = 500)
@@ -23,12 +23,13 @@ public class User {
     @Column(nullable = false,length = 100)
     private String userName;
 
-    @Column(nullable = false,length = 10)
+    @Column(nullable = true,length = 10)
     private String gender;
 
-    @Column(nullable = false,length = 20)
+    @Column(nullable = true,length = 20)
     private String phoneNumber;
 
+    @Column(nullable = false,length = 20)
     private String role;
 
 }

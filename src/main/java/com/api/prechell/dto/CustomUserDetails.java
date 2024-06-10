@@ -1,20 +1,19 @@
 package com.api.prechell.dto;
 
+import com.api.prechell.entity.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class CustomUserDetails  implements UserDetails {
+public class CustomUserDetails implements UserDetails {
 
-    private final UserEntity userEntity;
+    private final User userEntity;
 
-    public CustomUserDetails(UserEntity userEntity) {
-
+    public CustomUserDetails(User userEntity){
         this.userEntity = userEntity;
     }
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -35,37 +34,31 @@ public class CustomUserDetails  implements UserDetails {
 
     @Override
     public String getPassword() {
-
         return userEntity.getPassword();
     }
 
     @Override
     public String getUsername() {
-
-        return userEntity.getUsername();
+        return userEntity.getUserName();
     }
 
     @Override
     public boolean isAccountNonExpired() {
-
         return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-
         return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-
         return true;
     }
 
     @Override
     public boolean isEnabled() {
-
         return true;
     }
 }

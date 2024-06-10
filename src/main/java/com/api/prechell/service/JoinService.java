@@ -32,11 +32,10 @@ public class JoinService {
 
         User data = new User();
 
-        data.setUserName(data.getUserName());
+        data.setUserName(username);
         data.setPassword(bCryptPasswordEncoder.encode(password));
-        data.setRole("ROLE_regular member");
+        data.setRole("ROLE_ADMIN");
 
         userRepository.save(data);
-
     }
 }
