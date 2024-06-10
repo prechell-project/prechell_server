@@ -1,4 +1,4 @@
-package com.api.prechell;
+package com.api.prechell.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -17,10 +17,19 @@ public class Content {
     @JoinColumn(name = "upload_id", nullable = false)
     private Upload upload;
 
+    @Column(length = 100)
     private String videoLayout;
+
+    @Column(length = 100)
     private String username;
+
+    @Column(length = 255)
     private String keywords;
+
+    @Column(length = 100)
     private String title;
+
+    @Column(length = 500)
     private String description;
 
     public Content() {

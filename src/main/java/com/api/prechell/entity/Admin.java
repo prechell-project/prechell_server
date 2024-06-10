@@ -1,4 +1,4 @@
-package com.api.prechell;
+package com.api.prechell.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -13,7 +13,10 @@ public class Admin {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer adminId;
 
+    @Column(length = 255)
     private String email;
+
+    @Column(length = 100)
     private String username;
 
 }

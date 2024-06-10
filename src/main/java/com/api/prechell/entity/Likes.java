@@ -1,4 +1,4 @@
-package com.api.prechell;
+package com.api.prechell.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -9,11 +9,11 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
-@Table(name = "comments")
-public class Comments {
+@Table(name = "likes")
+public class Likes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer commentId;
+    private Integer likeId;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
@@ -24,9 +24,6 @@ public class Comments {
     private Content content;
 
     @Column(nullable = false)
-    private String commentText;
-
-    @Column(nullable = false)
-    private LocalDateTime commentedAt = LocalDateTime.now();
+    private LocalDateTime likedAt = LocalDateTime.now();
 
 }

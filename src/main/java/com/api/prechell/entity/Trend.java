@@ -1,4 +1,4 @@
-package com.api.prechell;
+package com.api.prechell.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -13,7 +13,9 @@ public class Trend {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer trendId;
 
+    @Column(length = 255)
     private String keyword;
+
     private Integer ranking;
 
 }

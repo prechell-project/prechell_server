@@ -1,4 +1,4 @@
-package com.api.prechell;
+package com.api.prechell.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -13,7 +13,9 @@ public class News {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer newsId;
 
+    @Column(length = 100)
     private String type;
-    private String content;
 
+    @Column(length = 500)
+    private String content;
 }

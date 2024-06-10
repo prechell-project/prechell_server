@@ -1,4 +1,4 @@
-package com.api.prechell;
+package com.api.prechell.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -17,10 +17,19 @@ public class Upload {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
+    @Column(length = 255)
     private String filePath;
+
+    @Column(length = 255)
     private String videoTags;
+
+    @Column(length = 100)
     private String videoTitle;
+
+    @Column(length = 500)
     private String description;
+
+    @Column(length = 255)
     private String thumbnailSetting;
 
 }
