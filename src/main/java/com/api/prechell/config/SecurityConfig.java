@@ -1,8 +1,8 @@
 package com.api.prechell.config;
 
-import com.api.prechell.jwt.JWTFilter;
-import com.api.prechell.jwt.JWTUtil;
-import com.api.prechell.jwt.LoginFilter;
+import com.api.prechell.config.jwt.JWTFilter;
+import com.api.prechell.config.jwt.JWTUtil;
+import com.api.prechell.config.jwt.LoginFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -55,19 +55,17 @@ public class SecurityConfig {
 
         http
                 .authorizeHttpRequests((auth) -> auth
-                        .requestMatchers("/login", "/", "/join").permitAll()
-                        .requestMatchers("/admin").hasRole("ADMIN")
+                        .requestMatchers("/login", "/", "/join","/h2-console/**").permitAll()
+                        .requestMatchers("/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated());
-        http
-                .addFilterBefore(new JWTFilter(jwtUtil), LoginFilter.class);
+
 
         http
                 .addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration),jwtUtil), UsernamePasswordAuthenticationFilter.class);
 
         http
                 .addFilterBefore(new JWTFilter(jwtUtil), LoginFilter.class);
-        http
-                .addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration), jwtUtil), UsernamePasswordAuthenticationFilter.class);
+
 
         //세션 설정
         http

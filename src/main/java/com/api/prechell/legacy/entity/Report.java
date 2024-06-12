@@ -1,5 +1,6 @@
-package com.api.prechell.entity;
+package com.api.prechell.legacy.entity;
 
+import com.api.prechell.domain.member.MemberEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,11 +18,11 @@ public class Report {
 
     @ManyToOne
     @JoinColumn(name = "reporting_user_id", nullable = false)
-    private User reportingUser;
+    private MemberEntity reportingMemberEntity;
 
     @ManyToOne
     @JoinColumn(name = "reported_user_id", nullable = false)
-    private User reportedUser;
+    private MemberEntity reportedMemberEntity;
 
     @Column(nullable = false, length = 500)
     private String reportContent;

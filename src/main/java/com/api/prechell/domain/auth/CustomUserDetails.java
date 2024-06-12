@@ -1,6 +1,6 @@
-package com.api.prechell.dto;
+package com.api.prechell.domain.auth;
 
-import com.api.prechell.entity.User;
+import com.api.prechell.domain.member.MemberEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -9,10 +9,17 @@ import java.util.Collection;
 
 public class CustomUserDetails implements UserDetails {
 
-    private final User userEntity;
+    private final MemberEntity memberEntity;
 
-    public CustomUserDetails(User userEntity){
-        this.userEntity = userEntity;
+    public CustomUserDetails(MemberEntity memberEntity){
+        this.memberEntity = memberEntity;
+    }
+
+    public Long getId(){
+        return memberEntity.getId(); // -> null
+    }
+    public String getEmail(){
+        return memberEntity.getEmail(); // -> null
     }
 
     @Override
@@ -20,26 +27,19 @@ public class CustomUserDetails implements UserDetails {
 
         Collection<GrantedAuthority> collection = new ArrayList<>();
 
-        collection.add(new GrantedAuthority() {
-
-            @Override
-            public String getAuthority() {
-
-                return userEntity.getRole();
-            }
-        });
+        collection.add((GrantedAuthority) () -> memberEntity.getRole().name());
 
         return collection;
     }
 
     @Override
     public String getPassword() {
-        return userEntity.getPassword();
+        return memberEntity.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return userEntity.getUserName();
+        return memberEntity.getUserName();
     }
 
     @Override

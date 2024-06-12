@@ -1,5 +1,6 @@
-package com.api.prechell.entity;
+package com.api.prechell.legacy.entity;
 
+import com.api.prechell.domain.member.MemberEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,7 +18,7 @@ public class Support {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private MemberEntity memberEntity;
 
     @Column(length = 100)
     private String inquiryType;

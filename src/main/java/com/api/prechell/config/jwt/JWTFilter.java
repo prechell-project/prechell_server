@@ -1,7 +1,8 @@
-package com.api.prechell.jwt;
+package com.api.prechell.config.jwt;
 
-import com.api.prechell.dto.CustomUserDetails;
-import com.api.prechell.entity.User;
+import com.api.prechell.domain.auth.CustomUserDetails;
+import com.api.prechell.domain.member.MemberEntity;
+import com.api.prechell.domain.member.Role;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -27,6 +28,7 @@ public class JWTFilter extends OncePerRequestFilter {
 
         //request에서 Authorization 헤더를 찾음
         String authorization= request.getHeader("Authorization");
+        // "Bearer ㅁㅁㅁ"
 
         //Authorization 헤더 검증
         if (authorization == null || !authorization.startsWith("Bearer ")) {
@@ -51,20 +53,24 @@ public class JWTFilter extends OncePerRequestFilter {
             return;
         }
 
+        Long userId = jwtUtil.getUserId(token);
+        String userEmail = jwtUtil.getUserEmail(token);
         String username = jwtUtil.getUsername(token);
         String role = jwtUtil.getRole(token);
 
+        MemberEntity memberEntity = new MemberEntity();
 
-        User userEntity = new User();
-        userEntity.setUserName(username);
-        userEntity.setPassword("temppassword");
-        userEntity.setRole(role);
+        memberEntity.setId(userId);
+        memberEntity.setEmail(userEmail);
+        memberEntity.setUserName(username);
+        memberEntity.setPassword("temppassword");
+        memberEntity.setRole(Role.valueOf(role));
 
-        CustomUserDetails customUserDetails = new CustomUserDetails(userEntity);
+        CustomUserDetails customUserDetails = new CustomUserDetails(memberEntity);
 
         Authentication authToken = new UsernamePasswordAuthenticationToken(customUserDetails, null, customUserDetails.getAuthorities());
 
-        SecurityContextHolder.getContext().setAuthentication(authToken);
+        SecurityContextHolder.getContext().setAuthentication(authToken); // 메모리에 넣어두는것
 
         filterChain.doFilter(request, response);
     }

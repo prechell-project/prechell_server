@@ -1,7 +1,10 @@
-package com.api.prechell.jwt;
+package com.api.prechell.config.jwt;
 
-import com.api.prechell.dto.CustomUserDetails;
+import com.api.prechell.api.service.auth.dto.LoginDto;
+import com.api.prechell.domain.auth.CustomUserDetails;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletInputStream;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -10,7 +13,10 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.util.StreamUtils;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.Collection;
 import java.util.Iterator;
 
@@ -27,13 +33,22 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException{
+        LoginDto loginDto = new LoginDto();
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            ServletInputStream inputStream = request.getInputStream();
+            String messageBody = StreamUtils.copyToString(inputStream, StandardCharsets.UTF_8);
+            loginDto = objectMapper.readValue(messageBody, LoginDto.class);
 
-        String username = obtainUsername(request);
-        String password = obtainPassword(request);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        String email = loginDto.getEmail();
+        String password = loginDto.getPassword();
 
-        System.out.println(username);
+        System.out.println(email);
 
-        UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(username, password, null);
+        UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(email, password);
 
         return authenticationManager.authenticate(authToken);
     }
@@ -43,6 +58,8 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
 
         CustomUserDetails customUserDetails = (CustomUserDetails) authentication.getPrincipal();
 
+        Long id = customUserDetails.getId();
+        String email = customUserDetails.getEmail();
         String username = customUserDetails.getUsername();
 
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
@@ -51,7 +68,7 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
 
         String role = auth.getAuthority();
 
-        String token = jwtUtil.createJwt(username, role, 60*60*10L);
+        String token = jwtUtil.createJwt(id,email,username, role, 60*60*10L);
 
         response.addHeader("Authorization", "Bearer " + token);
     }
