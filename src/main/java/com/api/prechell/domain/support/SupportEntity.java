@@ -1,4 +1,4 @@
-package com.api.prechell.legacy.entity;
+package com.api.prechell.domain.support;
 
 import com.api.prechell.domain.member.MemberEntity;
 import jakarta.persistence.*;
@@ -11,10 +11,10 @@ import java.time.LocalDateTime;
 @Setter
 @Entity
 @Table(name = "support")
-public class Support {
+public class SupportEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer supportId;
+    private Long supportId;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
