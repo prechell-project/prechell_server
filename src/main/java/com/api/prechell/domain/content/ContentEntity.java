@@ -1,5 +1,6 @@
-package com.api.prechell.legacy.entity;
+package com.api.prechell.domain.content;
 
+import com.api.prechell.domain.upload.UploadEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,14 +9,14 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "content")
-public class Content {
+public class ContentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer contentId;
+    private Long contentId;
 
     @ManyToOne
     @JoinColumn(name = "upload_id", nullable = false)
-    private Upload upload;
+    private UploadEntity uploadEntity;
 
     @Column(length = 100)
     private String videoLayout;
@@ -32,6 +33,6 @@ public class Content {
     @Column(length = 500)
     private String description;
 
-    public Content() {
+    public ContentEntity() {
     }
 }
