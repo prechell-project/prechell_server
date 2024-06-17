@@ -12,9 +12,4 @@ public interface NewsServiceInterface {
 
     NewsResponse getNewsById(Long id);
 
-    NewsResponse createNews(NewsRequest newsRequest);
-
-    NewsResponse updateNews(Long id, NewsRequest newsRequest);
-
-    void deleteNews(Long id);
 }
