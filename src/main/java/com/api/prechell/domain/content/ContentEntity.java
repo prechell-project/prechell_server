@@ -33,6 +33,4 @@ public class ContentEntity {
     @Column(length = 500)
     private String description;
 
-    public ContentEntity() {
-    }
 }
