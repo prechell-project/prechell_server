@@ -1,4 +1,4 @@
-package com.api.prechell.legacy.entity;
+package com.api.prechell.domain.trend;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -8,14 +8,14 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "trend")
-public class Trend {
+public class TrendEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer trendId;
+    private Long trendId;
 
     @Column(length = 255)
     private String keyword;
 
-    private Integer ranking;
+    private String ranking;
 
 }
