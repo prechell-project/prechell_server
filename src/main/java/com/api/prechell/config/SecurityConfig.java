@@ -1,6 +1,6 @@
 package com.api.prechell.config;
 
- feature_userInfo
+
 //import com.api.prechell.jwt.JWTFilter;
 //import com.api.prechell.jwt.JWTUtil;
 //import com.api.prechell.jwt.LoginFilter;
@@ -8,7 +8,6 @@ package com.api.prechell.config;
 import com.api.prechell.config.jwt.JWTFilter;
 import com.api.prechell.config.jwt.JWTUtil;
 import com.api.prechell.config.jwt.LoginFilter;
- dev
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -44,7 +43,6 @@ public class SecurityConfig {
     PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
- feature_userInfo
 
 
     @Bean
@@ -84,6 +82,5 @@ public class SecurityConfig {
 
         return http.build();
     }
- dev
 }
 

@@ -1,5 +1,6 @@
 package com.api.prechell.legacy.entity;
 
+import com.api.prechell.domain.content.ContentEntity;
 import com.api.prechell.domain.member.MemberEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -22,7 +23,7 @@ public class Comments {
 
     @ManyToOne
     @JoinColumn(name = "content_id", nullable = false)
-    private Content content;
+    private ContentEntity content;
 
     @Column(nullable = false, length = 500)
     private String commentText;

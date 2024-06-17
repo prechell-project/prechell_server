@@ -1,6 +1,7 @@
 package com.api.prechell.api.service.auth;
 
 import com.api.prechell.api.service.auth.dto.JoinDto;
+import com.api.prechell.domain.content.ContentEntity;
 import com.api.prechell.domain.member.MemberEntity;
 import com.api.prechell.domain.member.MemberRepository;
 import com.api.prechell.domain.member.Role;
@@ -42,5 +43,7 @@ public class JoinService {
         data.setRole(Role.ROLE_USER);
 
         memberRepository.save(data);
+
+
     }
 }

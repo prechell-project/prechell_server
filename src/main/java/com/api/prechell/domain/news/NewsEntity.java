@@ -1,4 +1,4 @@
-package com.api.prechell.legacy.entity;
+package com.api.prechell.domain.news;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -8,10 +8,13 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "news")
-public class News {
+public class NewsEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer newsId;
+    private Long newsId;
+
+    @Column(length = 100)
+    private String title;
 
     @Column(length = 100)
     private String type;
