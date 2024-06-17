@@ -1,4 +1,4 @@
-package com.api.prechell.legacy.entity;
+package com.api.prechell.domain.upload;
 
 import com.api.prechell.domain.member.MemberEntity;
 import jakarta.persistence.*;
@@ -9,10 +9,10 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "upload")
-public class Upload {
+public class UploadEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer uploadId;
+    private Long uploadId;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
