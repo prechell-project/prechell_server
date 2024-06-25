@@ -1,9 +1,6 @@
 package com.api.prechell.api.service.auth.dto;
 
-import com.api.prechell.domain.member.MemberEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+
 import lombok.Getter;
 import lombok.Setter;
 

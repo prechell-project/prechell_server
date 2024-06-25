@@ -2,10 +2,8 @@ package com.api.prechell.api.controller.content;
 
 import com.api.prechell.api.service.auth.dto.ContentDTO;
 import com.api.prechell.api.service.content.ContentService;
-import com.api.prechell.api.service.content.dto.ContentResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

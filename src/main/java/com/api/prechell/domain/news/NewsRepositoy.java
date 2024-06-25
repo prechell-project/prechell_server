@@ -1,4 +1,4 @@
-package com.api.prechell.repository;
+package com.api.prechell.domain.news;
 
 import com.api.prechell.domain.news.NewsEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

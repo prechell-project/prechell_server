@@ -1,8 +1,5 @@
 package com.api.prechell.api.service.auth.dto;
 
-import com.api.prechell.domain.upload.UploadEntity;
-import jakarta.persistence.*;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 

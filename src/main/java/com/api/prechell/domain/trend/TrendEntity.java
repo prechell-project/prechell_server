@@ -9,6 +9,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "trend")
 public class TrendEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long trendId;
@@ -18,4 +19,5 @@ public class TrendEntity {
 
     private String ranking;
 
+    private int searchCount;
 }

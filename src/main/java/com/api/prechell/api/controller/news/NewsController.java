@@ -1,10 +1,8 @@
 package com.api.prechell.api.controller.news;
 
-import com.api.prechell.api.service.news.NewsService;
+import com.api.prechell.api.service.news.NewsServiceImpl;
 import com.api.prechell.api.service.news.dto.NewsResponse;
-import com.api.prechell.domain.news.NewsRequest;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +13,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class NewsController {
 
-    private final NewsService newsService;
+    private final NewsServiceImpl newsService;
 
     // 공지사항 조회
     @GetMapping("/notices")
