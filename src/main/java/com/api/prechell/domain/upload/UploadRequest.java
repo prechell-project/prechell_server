@@ -1,15 +1,12 @@
-package com.api.prechell.api.service.auth.dto;
-
-import com.api.prechell.domain.member.MemberEntity;
+package com.api.prechell.domain.upload;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class UploadDTO {
-    private Long uploadId;
-    private MemberEntity memberEntity;
+public class UploadRequest {
+    private Long memberId;
     private String filePath;
     private String videoTags;
     private String videoTitle;

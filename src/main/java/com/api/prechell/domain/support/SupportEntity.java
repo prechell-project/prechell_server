@@ -12,12 +12,13 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "support")
 public class SupportEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long supportId;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "member_id", nullable = false)
     private MemberEntity memberEntity;
 
     @Column(length = 100)
@@ -31,4 +32,12 @@ public class SupportEntity {
 
     private LocalDateTime responseDate;
 
+    private LocalDateTime createdAt;
+
+    private boolean isPublic;
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now();
+    }
 }
