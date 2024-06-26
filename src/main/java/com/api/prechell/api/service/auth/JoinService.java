@@ -44,6 +44,5 @@ public class JoinService {
 
         memberRepository.save(data);
 
-
     }
 }
