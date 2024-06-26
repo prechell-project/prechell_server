@@ -27,7 +27,6 @@ public class TrendServiceImpl implements TrendService {
 
     @Override
     public List<CreatorRankingResponse> getCreatorRankings(int limit) {
-        // 크리에이터 랭킹을 조회하는 로직을 구현해야 합니다.
         return List.of(
                 new CreatorRankingResponse("user1", 1, 1000),
                 new CreatorRankingResponse("user2", 2, 900),
