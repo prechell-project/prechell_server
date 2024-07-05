@@ -12,6 +12,6 @@ public interface LikeRepository extends JpaRepository<Likes, Integer> {
     List<Likes> findByMemberEntityId(Long userId);
 
     // ContentEntity의 ID를 기준으로 해당 컨텐츠에 대한 좋아요 기록을 조회하는 메서드
-    List<Likes> findByContentId(Long contentId);
+//    List<Likes> findByContentId(Long contentId);
 }
 

@@ -17,11 +17,13 @@ public class ProfileEditController {
     @PutMapping("/{userId}")
     public ResponseEntity<ProfileEditResponse> updateProfile(@PathVariable Long userId, @RequestBody ProfileEditDTO profileEditDTO) {
         // Authentication and authorization logic can be added here
-
-        profileEditService.updateProfile(userId, profileEditDTO);
-        ProfileEditResponse response = new ProfileEditResponse();
-        response.setStatus("success");
-        return ResponseEntity.ok(response);
+//
+//        profileEditService.updateProfile(userId, profileEditDTO);
+//        ProfileEditResponse response = new ProfileEditResponse();
+//        response.setStatus("success");
+//        return ResponseEntity.ok(response);
+//    }
+//}
+        return null;
     }
 }
-

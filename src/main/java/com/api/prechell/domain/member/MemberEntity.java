@@ -23,7 +23,7 @@ public class MemberEntity extends BaseEntity {
     private String password;
 
     @Column(nullable = false,length = 100)
-    private String userName;
+    private String username;
 
     @Column(nullable = true,length = 10)
     @Enumerated(EnumType.STRING)
