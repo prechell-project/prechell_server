@@ -62,7 +62,7 @@ public class JWTFilter extends OncePerRequestFilter {
 
         memberEntity.setId(userId);
         memberEntity.setEmail(userEmail);
-        memberEntity.setUserName(username);
+        memberEntity.setUsername(username);
         memberEntity.setPassword("temppassword");
         memberEntity.setRole(Role.valueOf(role));
 

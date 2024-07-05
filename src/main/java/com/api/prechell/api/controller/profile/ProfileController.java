@@ -17,9 +17,10 @@ public class ProfileController {
 
     @GetMapping("/{userId}")
     public ResponseEntity<ProfileResponse> getProfile(@PathVariable Long userId) {
-        ProfileDTO profileDTO = profileService.getProfileByUserId(userId);
-        ProfileResponse response = new ProfileResponse("success", profileDTO);
-        return ResponseEntity.ok(response);
+//        ProfileDTO profileDTO = profileService.getProfileByUserId(userId);
+//        ProfileResponse response = new ProfileResponse("success", profileDTO);
+//        return ResponseEntity.ok(response);
+        return null;
     }
 
     @PutMapping("/{userId}")

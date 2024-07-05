@@ -25,7 +25,7 @@ public class MemberResponse {
         return MemberResponse.builder()
                 .id(memberEntity.getId())
                 .email(memberEntity.getEmail())
-                .userName(memberEntity.getUserName())
+                .userName(memberEntity.getUsername())
                 .gender(memberEntity.getGender())
                 .phoneNumber(memberEntity.getPhoneNumber())
                 .build();

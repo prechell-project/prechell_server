@@ -12,10 +12,10 @@ public class ProfileService {
     @Autowired
     private ProfileRepository profileRepository;
 
-    public ProfileDTO getProfileByUserId(Long userId) {
-        Profile profile = profileRepository.findByUserId(userId);
-        return convertToDto(profile);
-    }
+//    public ProfileDTO getProfileByUserId(Long userId) {
+//        Profile profile = profileRepository.findByUserId(userId);
+//        return convertToDto(profile);
+//    }
 
     public void updateProfile(ProfileDTO profileDTO) {
         Profile profile = convertToEntity(profileDTO);

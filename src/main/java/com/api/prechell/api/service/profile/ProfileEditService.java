@@ -14,28 +14,28 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ProfileEditService {
-
-    @Autowired
-    private ProfileRepository profileRepository;
-
-    public String getProfileImage(Long userId) {
-        Profile profile = profileRepository.findByUserId(userId);
-        return profile != null ? profile.getProfileImage() : null;
-    }
-
-    public String getSelfIntroduction(Long userId) {
-        Profile profile = profileRepository.findByUserId(userId);
-        return profile != null ? profile.getSelfIntroduction() : null;
-    }
-
-    public void updateProfile(Long userId, ProfileEditDTO profileEditDTO) {
-        Profile profile = profileRepository.findByUserId(userId);
-        if (profile != null) {
-            profile.setProfileImage(profileEditDTO.getProfileImage());
-            profile.setSelfIntroduction(profileEditDTO.getSelfIntroduction());
-            profileRepository.save(profile);
-        }
-    }
+//
+//    @Autowired
+//    private ProfileRepository profileRepository;
+//
+//    public String getProfileImage(Long userId) {
+//        Profile profile = profileRepository.findByUserId(userId);
+//        return profile != null ? profile.getProfileImage() : null;
+//    }
+//
+//    public String getSelfIntroduction(Long userId) {
+//        Profile profile = profileRepository.findByUserId(userId);
+//        return profile != null ? profile.getSelfIntroduction() : null;
+//    }
+//
+//    public void updateProfile(Long userId, ProfileEditDTO profileEditDTO) {
+//        Profile profile = profileRepository.findByUserId(userId);
+//        if (profile != null) {
+//            profile.setProfileImage(profileEditDTO.getProfileImage());
+//            profile.setSelfIntroduction(profileEditDTO.getSelfIntroduction());
+//            profileRepository.save(profile);
+//        }
+//    }
 }
 
 

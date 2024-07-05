@@ -38,7 +38,7 @@ public class JoinService {
         MemberEntity data = new MemberEntity();
 
         data.setEmail(email);
-        data.setUserName(username);
+        data.setUsername(username);
         data.setPassword(bCryptPasswordEncoder.encode(password));
         data.setRole(Role.ROLE_USER);
 
